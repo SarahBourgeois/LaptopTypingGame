@@ -6,11 +6,9 @@ var letters_id, keyboard_id;
 var score =0, number_life=3, diminish_timebar=100;
 var temp;
 
-
 // call function to launch the game
 randomLetters();
 document.getElementById("number_life").innerHTML = "Life : " + number_life;
-
 
 // init timebar 
 function time(){
@@ -46,7 +44,7 @@ time();
 function playerLife() {
 if (diminish_timebar == 0 && number_life>0) {
     number_life--;
-    lifeDesign(number_life); 
+    hideLife(number_life); 
     gameTimer();
     time();
 }
@@ -59,46 +57,48 @@ if(diminish_timebar <3 && number_life ==0) {
 
 // compare display letters and user's action 
 function comparaison() {
-
 if(letters_id ==keyboard_id){
     if(score <10) {
         diminish_timebar = 100; // ajust time bar 
-        level.innerHTML= "Level 1 : Children";
+        level.innerHTML= "Level 1 ";
     }
     else if (score >=10 && score <20) {
         diminish_timebar = 85;
-        level.innerHTML = "Level 2 : Padawan";
+        level.innerHTML = "Level 2 ";
     }
     else if (score >=20 && score <35) {
         diminish_timebar = 70;
-        level.innerHTML = "Level 3 : Good guy";
+        level.innerHTML = "Level 3";
     }
-    else if (score >=35 && score < 50) {
-        diminish_timebar= 50;
-        level.innerHTML = "Level 4 : Jedi";
+    else if (score >=35 && score < 45) {
+        diminish_timebar= 55;
+        level.innerHTML = "Level 4 ";
     }
-    else if (score >=50 && score<65) {
+    else if (score >=55 && score<65) {
         diminish_timebar=30;
-        level.innerHTML = "Level 5 : Boss !";
+        level.innerHTML = "Level 5";
     }
-    else {
-        diminish_timebar = 30;
-        level.innerHTML="Level 6 : You're a heroe !!!";
+    else if (score >=65 && score <75) {
+        diminish_timebar=15;
+        level.innerHTML="Level 6"
     }
-randomLetters();
-gameTimer();
-score++;
+    if (score >= 75) {
+        diminish_timebar = 15;
+        level.innerHTML="Hero level";
+    }
+    score++;
+    randomLetters();
+    gameTimer();   
 document.getElementById("score").innerHTML = "Score : " + score;
 }
 if (letters_id != keyboard_id && diminish_timebar==0) {
-    number_life--;
     diminish_timebar = diminish_timebar - 20;
     gameTimer(); 
-}
+    }
 }
 
-// suppress a life picture when player loose
-function lifeDesign(number_life) {
+// suppress a life picture when player loose 
+function hideLife(number_life) {
 if (number_life ==2) {
 document.getElementById("image3").style.visibility="hidden";      
 }
@@ -108,7 +108,25 @@ document.getElementById("image2").style.visibility="hidden";
 }
 
 
+function play(idPlayer,btn) {
+var player = document.querySelector('#' + idPlayer);
+if (player.paused) {
+    player.play();
+    btn.innerHTML='<img src="image/play.png"/>'
+} 
+else {
+    player.pause(); 
+    btn.innerHTML='<img src="image/pause.png"/>'
+    }
+}
+function resume(idPlayer) {
+    var player = document.querySelector('#' + idPlayer);
+    player.currentTime = 0;
+    player.pause();
+}
 
+
+/*
 var byline = document.getElementById('byline');     // Find the H2
 bylineText = byline.innerHTML;                                      // Get the content of the H2
 bylineArr = bylineText.split('');                                   // Split content into array
@@ -137,3 +155,4 @@ if (pseudo.length<6) {
 alert("Your pseudo must contain 6 characters minimum please")
 }
 }
+*/
