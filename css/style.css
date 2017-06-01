@@ -1,3 +1,4 @@
+
 /* display letter content*/
 #lettersList{
     text-align: center;
@@ -33,7 +34,7 @@
 /*life content*/
 #life {
     font-size: 30px;
-    color: yellow;
+    color: red;
 }
 
 
@@ -44,6 +45,25 @@
 	width: 30%;
 	margin: auto;	
 }
+
+#image, #image2, #image3{
+	background-image:url("../image/life.png");
+ visibility:  "";
+	height:0px;
+	width:10px;
+}
+
+#life {
+	font-size:30px;
+
+}
+
+#life, #image, #image2, #image3{
+	display:inline-block;
+	padding : 20px;
+		margin-left:15px;
+}
+
 
 
 /* Animation properties */
@@ -146,11 +166,11 @@ body {
 .byline span {
   display: inline-block;
 }
-
+/*
 img {
   width: 100%;
 }
-
+*/
 .star, .wars, .byline {
   position: absolute;
 }
