@@ -1,5 +1,6 @@
 // retrieve global html element
-var lettres =document.querySelectorAll("#lettersList");
+const elementList = document.querySelectorAll("#lettersList");
+
 var level = document.getElementById("level");
 // global variables
 var letters_id, keyboard_id;
@@ -34,7 +35,7 @@ time();
 
 // random words
 function randomWords(){
-    var arrayWords = ["bitch"];
+    var arrayWords = ["BITCH"];
     var item = arrayWords[Math.floor(Math.random()*arrayWords.length)]; 
     listLetters = [];
     for( var i=0; i<item.length; i++) {
@@ -52,13 +53,17 @@ function wordsComparaison() {
   // ou alors on compare avec le tableau de lettre abcd etc avec la
   // technique du 1er js...  
      if(keyboard_id == listLetters[count].charCodeAt(0)) {
-         alert("good");
-         for (var i=0; i<lettres.length; i++) {
-            lettres[i].style.color="red";
-         }
-         count++;
-  }
 
+        alert(listLetters[count]);
+        lettersList.innerHTML = lettersList.innerHTML.replace(listLetters[count], '<span style="color: green;">'+listLetters[count]+'</span>');  
+       }
+         count++;
 }
+
+         
+         
+  
+
+
     
 

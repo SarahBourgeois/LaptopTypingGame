@@ -6,6 +6,11 @@
     color: yellow;
 }
 
+#lettersList-{
+   text-align: center;
+    font-size: 250px;
+    color: green;
+    }
 /* time bar content*/
 #time {
     height: 10px;
