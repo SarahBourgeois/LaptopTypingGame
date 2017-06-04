@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jquery-ui.css"> <!-- jquery lib for explosion -->    
     <title>Typing game</title>
 </head>
 
@@ -11,9 +12,9 @@
 <!-- display letters -->
 <div id="lettersList"></div>
 
-<!-- l'audio -->	
+<!-- audio -->	
 <div id="play">
-    <audio id="audioPlayer" loop>
+    <audio id="audioPlayer" loop autoplay>
     <source src="audio/simplySad.mp3">
 </audio>
 <button class="btn" onclick="play('audioPlayer', this)"><img src="image/play.png"/></button>
@@ -44,6 +45,9 @@
 </form>
 </div>
 
-<script src="js/app.js" type="text/javascript"></script>
+<script src="js/wordsLevel.js" type="text/javascript"></script>
 <!-- lib -->
+
 </body>
+
+</html>

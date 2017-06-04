@@ -5,10 +5,9 @@ var level = document.getElementById("level");
 var letters_id, keyboard_id;
 var score =0, number_life=3, diminish_timebar=100;
 var temp;
-
+var listLetters = [];
 // call function to launch the game
 randomLetters();
-document.getElementById("number_life").innerHTML = "Life : " + number_life;
 
 // init timebar 
 function time(){
@@ -23,6 +22,7 @@ document.getElementById("time").style.width = diminish_timebar + "%";
 diminish_timebar--;
 time();
 }
+
 
 // display random letters
 function randomLetters() {
@@ -40,13 +40,14 @@ comparaison();
 time();
 }
 
+
 // player number of life
 function playerLife() {
 if (diminish_timebar == 0 && number_life>0) {
     number_life--;
-    hideLife(number_life); 
     gameTimer();
     time();
+    hideLife(number_life); 
 }
 
 if(diminish_timebar <3 && number_life ==0) {
@@ -55,16 +56,19 @@ if(diminish_timebar <3 && number_life ==0) {
     }
 }
 
+
 // compare display letters and user's action 
 function comparaison() {
 if(letters_id ==keyboard_id){
     if(score <10) {
         diminish_timebar = 100; // ajust time bar 
         level.innerHTML= "Level 1 ";
+     
     }
     else if (score >=10 && score <20) {
         diminish_timebar = 85;
         level.innerHTML = "Level 2 ";
+            
     }
     else if (score >=20 && score <35) {
         diminish_timebar = 70;
@@ -74,11 +78,11 @@ if(letters_id ==keyboard_id){
         diminish_timebar= 55;
         level.innerHTML = "Level 4 ";
     }
-    else if (score >=55 && score<65) {
+    else if (score >=45 && score<55) {
         diminish_timebar=30;
         level.innerHTML = "Level 5";
     }
-    else if (score >=65 && score <75) {
+    else if (score >=55 && score <75) {
         diminish_timebar=15;
         level.innerHTML="Level 6"
     }
@@ -89,13 +93,26 @@ if(letters_id ==keyboard_id){
     score++;
     randomLetters();
     gameTimer();   
-document.getElementById("score").innerHTML = "Score : " + score;
+    document.getElementById("score").innerHTML = "Score : " + score;
 }
 if (letters_id != keyboard_id && diminish_timebar==0) {
     diminish_timebar = diminish_timebar - 20;
     gameTimer(); 
     }
 }
+
+
+/* =============================
+/ GAME DESIGN AND OPTIONS
+  ============================ */
+/*function explosedLetters() {
+    todo foreach sur la liste de query
+  $(lettersList).toggle( "explode", {pieces: 16}, 1000 );
+}
+*/
+
+
+
 
 // suppress a life picture when player loose 
 function hideLife(number_life) {
@@ -107,7 +124,7 @@ document.getElementById("image2").style.visibility="hidden";
 }
 }
 
-
+// audio function to start
 function play(idPlayer,btn) {
 var player = document.querySelector('#' + idPlayer);
 if (player.paused) {
@@ -119,6 +136,7 @@ else {
     btn.innerHTML='<img src="image/pause.png"/>'
     }
 }
+// audio function to stop
 function resume(idPlayer) {
     var player = document.querySelector('#' + idPlayer);
     player.currentTime = 0;
