@@ -1,13 +1,12 @@
 // retrieve global html element
 const elementList = document.querySelectorAll("#lettersList");
-
 var level = document.getElementById("level");
 // global variables
 var letters_id, keyboard_id;
-var score =0, number_life=3, diminish_timebar=100;
+var score =0, number_life=3, diminish_timebar=100, count =0;
 var temp;
-var count =0;
 var listLetters = [];
+
 // call function to launch the game
 randomWords();
 
@@ -20,11 +19,9 @@ temp = setInterval(gameTimer, 100);
 // retrieve user key
 function retrieveKey(event) {
 keyboard_id = event.keyCode;
-alert("keyboard id " + keyboard_id);
 wordsComparaison();
 time();
 }
-
 
 // change size of the timer bar
 function gameTimer() {
@@ -44,21 +41,18 @@ function randomWords(){
     lettersList.innerHTML  = item; 
 }
 
-
 // compare words 
 function wordsComparaison() {
-
-  // check count index -> if index 1 --> == keyboard id ==> ok on
-  // passe a l'index 2 et ainsi de suite -> sinon diminue la timebar
-  // ou alors on compare avec le tableau de lettre abcd etc avec la
-  // technique du 1er js...  
-     if(keyboard_id == listLetters[count].charCodeAt(0)) {
-
-        alert(listLetters[count]);
+        if(keyboard_id == listLetters[count].charCodeAt(0)) {     
         lettersList.innerHTML = lettersList.innerHTML.replace(listLetters[count], '<span style="color: green;">'+listLetters[count]+'</span>');  
-       }
-         count++;
+        count++;
+        if (listLetters.length == count) {
+            alert("Good job !!!");
+            randomWords();
+        }
+    }
 }
+
 
          
          
