@@ -105,14 +105,6 @@ if (letters_id != keyboard_id && diminish_timebar==0) {
 /* =============================
 / GAME DESIGN AND OPTIONS
   ============================ */
-/*function explosedLetters() {
-    todo foreach sur la liste de query
-  $(lettersList).toggle( "explode", {pieces: 16}, 1000 );
-}
-*/
-
-
-
 
 // suppress a life picture when player loose 
 function hideLife(number_life) {
@@ -144,25 +136,7 @@ function resume(idPlayer) {
 }
 
 
-/*
-var byline = document.getElementById('byline');     // Find the H2
-bylineText = byline.innerHTML;                                      // Get the content of the H2
-bylineArr = bylineText.split('');                                   // Split content into array
-byline.innerHTML = '';                                                      // Empty current content
 
-var span;                   // Create variables to create elements
-var letter;
-
-for(i=0;i<bylineArr.length;i++){                                    // Loop for every letter
-span = document.createElement("span");                    // Create a <span> element
-letter = document.createTextNode(bylineArr[i]);   // Create the letter
-if(bylineArr[i] == ' ') {                                             // If the letter is a space...
-byline.appendChild(letter);                 // ...Add the space without a span
-} else {
-    span.appendChild(letter);                       // Add the letter to the span
-byline.appendChild(span);                   // Add the span to the h2
-}
-}
 
 // send your score 
 function formSendScore() {
@@ -173,4 +147,3 @@ if (pseudo.length<6) {
 alert("Your pseudo must contain 6 characters minimum please")
 }
 }
-*/
