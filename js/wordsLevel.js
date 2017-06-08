@@ -6,8 +6,7 @@ var letters_id, keyboard_id, temp;
 var score =0, number_life=3, diminish_timebar=100, count=0;
 var wordLength = 0; // Init de word index
 var listLetters = [];
-var initWordLength = lettersList.innerHTML.length; // length of the start word
-
+var initWordLength; // length of the start word
 
 // ===================================
 //  LAUNCH GAME FUNCTION
@@ -31,7 +30,6 @@ diminish_timebar--;
 time();
 }
 
-
 // ===================================
 //  Caption of user is typing 
 // ===================================
@@ -48,7 +46,6 @@ wordsComparaison();
 time();
 }
 
-
 // ==============================
 //  The words 
 // ===============================
@@ -63,7 +60,7 @@ function randomWords(){
     }
     lettersList.innerHTML  = item; 
     lettersList.innerHTML  = item; // call 2nd time because it's appears empty for jquery .
-    initWordLength = lettersList.innerHTML.length;
+     initWordLength = lettersList.innerHTML.length;
 }
 
 // function which change color letter 
@@ -85,12 +82,14 @@ function wordsComparaison() {
        }       
        if (listLetters.length == count) {
            flickerWord();
-           setTimeout(randomWords, 3000); // set time to launch a new word 
            count = 0;
+           initWordLength = 0;
+           setTimeout(randomWords, 3000); // set time to launch a new word 
+         
        }    
     }
 
-// blink words 
+//  
 function flickerWord(){ 
     $("#lettersList").fadeOut(900).fadeIn(800); 
 } 
