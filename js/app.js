@@ -3,9 +3,7 @@
  * by @Sarah Bourgeois 
  */
 var score =0, number_life=3, diminish_timebar=100;
-var temp;
-var keyboard_id;
-
+var temp, keyboard_id;
 
 // ===================================
 //  The timebar
@@ -30,11 +28,10 @@ time();
 // ===================================
 // retrieve user key
 function retrieveKey(event) {
-   // keyboard_id = event.keyCode;
-keyboard_id = event.key;
-wordsComparaison();
-//comparaison();
-time();
+    keyboard_id = event.key;
+    wordsComparaison();
+    //comparaison();
+    time();
 }
 
 // function to catch what is typing
@@ -61,21 +58,20 @@ if(diminish_timebar <3 && number_life ==0) {
 
 // suppress a life picture when player loose 
 function hideLife(number_life) {
-if (number_life ==2) {
-document.getElementById("image3").style.visibility="hidden";      
+    if (number_life ==2) {
+        document.getElementById("image3").style.visibility="hidden";      
+    }
+    if (number_life ==1) {
+        document.getElementById("image2").style.visibility="hidden";
+    }
 }
-if (number_life ==1) {
-document.getElementById("image2").style.visibility="hidden";
-}
-}
-
 
 
 // =========================
 //  AUDIO 
 // ==========================
 // audio function to start= function play(idPlayer,btn) in html
-$( "#player" ).click(function() { // 
+$( "#btn" ).click(function() { // 
   if ($("#audioPlayer")[0].paused == false) { 
       $("#audioPlayer")[0].pause();
       $(this).html('<img src="image/pause.png"/>');

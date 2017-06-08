@@ -1,25 +1,20 @@
 // retrieve global html element
 var lettres =document.querySelectorAll("#lettersList");
 var level = document.getElementById("level");
-// global variables
-//var letters_id, keyboard_id;
 var score =0, number_life=3, diminish_timebar=100;
 var temp;
 var listLetters = [];
-// call function to launch the game
+
+// 
 randomLetters();
-
-
-
 
 // display random letters
 function randomLetters() {
-var items = ["A", "B","C", "D","E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var item = items[Math.floor(Math.random()*items.length)]; // select random item into the array
-letters_id = item;
-lettersList.innerHTML  = item; 
+    var items = ["A", "B","C", "D","E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    var item = items[Math.floor(Math.random()*items.length)]; // select random item into the array
+    letters_id = item;
+    lettersList.innerHTML  = item; 
 }
-
 
 // compare display letters and user's action 
 function comparaison() {
@@ -27,7 +22,6 @@ if(letters_id ==keyboard_id.toUpperCase()){
     if(score <10) {
         diminish_timebar = 100; // ajust time bar 
         level.innerHTML= "Level 1 ";
-     
     }
     else if (score >=10 && score <20) {
         diminish_timebar = 85;
@@ -62,21 +56,11 @@ if(letters_id ==keyboard_id.toUpperCase()){
 if (letters_id != keyboard_id && diminish_timebar==0) {
     diminish_timebar = diminish_timebar - 20;
     gameTimer(); 
-    }
-}
-
-
-
-
-
-
-
-// send your score 
-function formSendScore() {
-var pseudo =document.getElementById("pseudo").value;
-var email = document.getElementById("mail").value;
-
-if (pseudo.length<6) {
-alert("Your pseudo must contain 6 characters minimum please")
 }
 }
+
+
+
+
+
+
