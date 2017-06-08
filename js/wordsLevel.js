@@ -1,54 +1,13 @@
 // retrieve global html element
 const elementList = document.querySelectorAll("#lettersList");
-var level = document.getElementById("level");
 // global variables
-var letters_id, keyboard_id, temp;
-var score =0, number_life=3, diminish_timebar=100, count=0;
+var  count=0;
 var wordLength = 0; // Init de word index
 var listLetters = [];
 var initWordLength; // length of the start word
 
-// ===================================
-//  LAUNCH GAME FUNCTION
-// ===================================
+//  Launch the game
 randomWords();
-
-// ===================================
-//  The timebar
-// ===================================
-
-// init timebar 
-function time(){
-clearTimeout(temp);
-temp = setInterval(gameTimer, 100); 
-}
-
-// change size of the timer bar
-function gameTimer() {
-document.getElementById("time").style.width = diminish_timebar + "%";
-diminish_timebar--;
-time();
-}
-
-// ===================================
-//  Caption of user is typing 
-// ===================================
-
-// function to catch what is typing
-$( "body").keydown(function(event) {
-  retrieveKey(event); 
-});
-
-// retrieve user key
-function retrieveKey(event) {
-keyboard_id = event.keyCode;
-wordsComparaison();
-time();
-}
-
-// ==============================
-//  The words 
-// ===============================
 
 // random words
 function randomWords(){
@@ -60,7 +19,7 @@ function randomWords(){
     }
     lettersList.innerHTML  = item; 
     lettersList.innerHTML  = item; // call 2nd time because it's appears empty for jquery .
-     initWordLength = lettersList.innerHTML.length;
+    initWordLength = item.length;
 }
 
 // function which change color letter 
@@ -79,17 +38,16 @@ function wordsComparaison() {
         lettersList.innerHTML = setCharAt(lettersList.innerHTML,wordLength - initWordLength, '<span style="color: green;">'+listLetters[count]+'</span>');
         count++; 
         initWordLength--; //cross the word from the end to the double letters
-       }       
-       if (listLetters.length == count) {
-           flickerWord();
-           count = 0;
-           initWordLength = 0;
-           setTimeout(randomWords, 3000); // set time to launch a new word 
-         
-       }    
-    }
+    }       
+    if (listLetters.length == count) {
+        flickerWord();
+        count = 0;
+        initWordLength = 0;
+        setTimeout(randomWords, 3000); // set time to launch a new word 
+    }    
+}
 
-//  
+// to do a flicker word
 function flickerWord(){ 
     $("#lettersList").fadeOut(900).fadeIn(800); 
 } 
@@ -106,20 +64,7 @@ function flickerWord(){
 
 
 
-// =========================
-//  AUDIO 
-// ==========================
 
-// audio function to start= function play(idPlayer,btn) in html
-$( "#player" ).click(function() { // 
-  if ($("#audioPlayer")[0].paused == false) { 
-      $("#audioPlayer")[0].pause();
-      $(this).html('<img src="image/pause.png"/>');
-  } else {
-      $("#audioPlayer")[0].play();
-      $(this).html('<img src="image/play.png"/>');
-  }
-});
 
          
       
