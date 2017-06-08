@@ -2,57 +2,22 @@
 var lettres =document.querySelectorAll("#lettersList");
 var level = document.getElementById("level");
 // global variables
-var letters_id, keyboard_id;
+//var letters_id, keyboard_id;
 var score =0, number_life=3, diminish_timebar=100;
 var temp;
 var listLetters = [];
 // call function to launch the game
 randomLetters();
 
-// init timebar 
-function time(){
-clearTimeout(temp);
-temp = setInterval(gameTimer, 100); 
-playerLife();
-}
 
-// change size of the timer bar
-function gameTimer() {
-document.getElementById("time").style.width = diminish_timebar + "%";
-diminish_timebar--;
-time();
-}
 
 
 // display random letters
 function randomLetters() {
 var items = ["A", "B","C", "D","E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var item = items[Math.floor(Math.random()*items.length)]; // select random item into the array
-letters_id = item.toUpperCase();
+letters_id = item;
 lettersList.innerHTML  = item; 
-}
-
-// retrieve user key
-function retrieveKey(event) {
-keyboard_id = event.key;
-comparaison();
-time();
-}
-
-
-// player number of life
-function playerLife() {
-if (diminish_timebar == 0 && number_life>0) {
-    number_life--;
-    gameTimer();
-    time();
-    hideLife(number_life); 
-}
-
-if(diminish_timebar <3 && number_life ==0) {
-    level.innerHTML = "GAME OVER ! Your score is : " + score;
-    document.getElementById("sendscore").hidden="";
-    }
 }
 
 
@@ -101,38 +66,7 @@ if (letters_id != keyboard_id && diminish_timebar==0) {
 }
 
 
-/* =============================
-/ GAME DESIGN AND OPTIONS
-  ============================ */
 
-// suppress a life picture when player loose 
-function hideLife(number_life) {
-if (number_life ==2) {
-document.getElementById("image3").style.visibility="hidden";      
-}
-if (number_life ==1) {
-document.getElementById("image2").style.visibility="hidden";
-}
-}
-
-// audio function to start
-function play(idPlayer,btn) {
-var player = document.querySelector('#' + idPlayer);
-if (player.paused) {
-    player.play();
-    btn.innerHTML='<img src="image/play.png"/>'
-} 
-else {
-    player.pause(); 
-    btn.innerHTML='<img src="image/pause.png"/>'
-    }
-}
-// audio function to stop
-function resume(idPlayer) {
-    var player = document.querySelector('#' + idPlayer);
-    player.currentTime = 0;
-    player.pause();
-}
 
 
 

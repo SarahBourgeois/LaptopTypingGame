@@ -4,6 +4,7 @@
  */
 var score =0, number_life=3, diminish_timebar=100;
 var temp;
+var keyboard_id;
 
 
 // ===================================
@@ -29,9 +30,10 @@ time();
 // ===================================
 // retrieve user key
 function retrieveKey(event) {
-keyboard_id = event.keyCode;
-//wordsComparaison();
-comparaison();
+   // keyboard_id = event.keyCode;
+keyboard_id = event.key;
+wordsComparaison();
+//comparaison();
 time();
 }
 

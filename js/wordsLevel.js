@@ -11,6 +11,7 @@ randomWords();
 
 // random words
 function randomWords(){
+    initWordLength=0;
     var arrayWords = ["ENFANT", "ECOLE", "JARDIN"];
     var item = arrayWords[Math.floor(Math.random()*arrayWords.length)]; 
     listLetters = [];
@@ -34,7 +35,8 @@ function setCharAt(str,index,chr) {
 // compare between user is typing and the word
 function wordsComparaison() {
   wordLength = lettersList.innerHTML.length; //retrieve lenght of the div word
-     if(keyboard_id == listLetters[count].charCodeAt(0)) {
+  
+     if(keyboard_id.toUpperCase() == listLetters[count]) {
         lettersList.innerHTML = setCharAt(lettersList.innerHTML,wordLength - initWordLength, '<span style="color: green;">'+listLetters[count]+'</span>');
         count++; 
         initWordLength--; //cross the word from the end to the double letters
@@ -42,7 +44,6 @@ function wordsComparaison() {
     if (listLetters.length == count) {
         flickerWord();
         count = 0;
-        initWordLength = 0;
         setTimeout(randomWords, 3000); // set time to launch a new word 
     }    
 }
