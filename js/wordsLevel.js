@@ -14,7 +14,6 @@ var initWordLength = lettersList.innerHTML.length; // length of the start word
 // ===================================
 randomWords();
 
-
 // ===================================
 //  The timebar
 // ===================================
@@ -85,19 +84,36 @@ function wordsComparaison() {
         initWordLength--; //cross the word from the end to the double letters
        }       
        if (listLetters.length == count) {
-           randomWords();
-           count =0;
-       }       
+           flickerWord();
+           setTimeout(randomWords, 3000); // set time to launch a new word 
+           count = 0;
+       }    
     }
+
+// blink words 
+function flickerWord(){ 
+    $("#lettersList").fadeOut(900).fadeIn(800); 
+} 
+
+
+
+
+
+
+
+   
+
+
+
 
 
 // =========================
 //  AUDIO 
 // ==========================
 
-// audio function to start
-$( "#player" ).click(function() { // = function play(idPlayer,btn) {
-  if ($("#audioPlayer")[0].paused == false) {  // = if (!player.paused) 
+// audio function to start= function play(idPlayer,btn) in html
+$( "#player" ).click(function() { // 
+  if ($("#audioPlayer")[0].paused == false) { 
       $("#audioPlayer")[0].pause();
       $(this).html('<img src="image/pause.png"/>');
   } else {
