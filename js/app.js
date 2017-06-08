@@ -5,6 +5,23 @@
 var score =0, number_life=3, diminish_timebar=100;
 var temp, keyboard_id;
 
+
+// ===================================
+//  Start the game
+// ===================================
+var id = 1 // TODO RETRIEVE ID LEVEL USER CHOOSE
+startGame();
+
+function startGame() {
+    switch (id){
+        case 1 : randomLetters();
+        break;
+        case 2 : randomWords();
+        default : 
+        break;
+    }
+}
+
 // ===================================
 //  The timebar
 // ===================================
@@ -29,8 +46,12 @@ time();
 // retrieve user key
 function retrieveKey(event) {
     keyboard_id = event.key;
-    wordsComparaison();
-    //comparaison();
+    switch (id) {
+        case 1 : comparaison();
+        break;
+        case 2 : wordsComparaison();
+        default : break;
+   }
     time();
 }
 

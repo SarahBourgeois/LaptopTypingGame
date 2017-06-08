@@ -5,9 +5,6 @@ var score =0, number_life=3, diminish_timebar=100;
 var temp;
 var listLetters = [];
 
-// 
-randomLetters();
-
 // display random letters
 function randomLetters() {
     var items = ["A", "B","C", "D","E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];

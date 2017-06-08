@@ -1,13 +1,7 @@
-// retrieve global html element
-//const elementList = document.querySelectorAll("#lettersList");
-// global variables
 var  count=0;
 var wordLength = 0; // Init de word index
 var listLetters = [];
 var initWordLength; // length of the start word
-
-//  Launch the game
-randomWords();
 
 
 // random words
@@ -19,8 +13,7 @@ function randomWords(){
         listLetters.push(item[i].toUpperCase());
     }
     lettersList.innerHTML  = item; 
-  //  lettersList.innerHTML  = item; // call 2nd time because it's appears empty for jquery .
-     initWordLength = item.length;
+    initWordLength = item.length;
 }
 
 // function which change color letter 
@@ -35,12 +28,10 @@ function setCharAt(str,index,chr) {
 // compare between user is typing and the word
 function wordsComparaison() {
   wordLength = lettersList.innerHTML.length; //retrieve lenght of the div word
-
      if(keyboard_id.toUpperCase() == listLetters[count]) {
         lettersList.innerHTML = setCharAt(lettersList.innerHTML, wordLength - initWordLength, '<span style="color: green;">'+listLetters[count]+'</span>');
         count++; 
-        initWordLength--; 
-         //cross the word from the end to the double letters
+        initWordLength--; //cross the word from the end to the double letters
     }       
     if (listLetters.length == count) {
         flickerWord();
@@ -53,7 +44,6 @@ function wordsComparaison() {
 function flickerWord(){ 
     $("#lettersList").fadeOut(900).fadeIn(800); 
 } 
-
 
 
 
