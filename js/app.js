@@ -1,15 +1,17 @@
 /**
  * General file for the game
- * by @Sarah Bourgeois 
+ * @Sarah Bourgeois 
  */
+
 var score =0, number_life=3, diminish_timebar=100;
 var temp, keyboard_id;
+
 
 
 // ===================================
 //  Start the game
 // ===================================
-var id = 1 // TODO RETRIEVE ID LEVEL USER CHOOSE
+var id = 2 // TODO RETRIEVE ID LEVEL USER CHOOSE
 startGame();
 
 function startGame() {
@@ -43,6 +45,12 @@ time();
 // ===================================
 //  Caption of user is typing 
 // ===================================
+// function to catch what is typing
+$( "body").keydown(function(event) {
+  retrieveKey(event); 
+});
+
+
 // retrieve user key
 function retrieveKey(event) {
     keyboard_id = event.key;
@@ -50,15 +58,12 @@ function retrieveKey(event) {
         case 1 : comparaison();
         break;
         case 2 : wordsComparaison();
+        break;
         default : break;
    }
     time();
 }
 
-// function to catch what is typing
-$( "body").keydown(function(event) {
-  retrieveKey(event); 
-});
 
 
 // =========================
@@ -87,17 +92,10 @@ function hideLife(number_life) {
     }
 }
 
-
 // =========================
-//  AUDIO 
+//  BREAK GAME
 // ==========================
-// audio function to start= function play(idPlayer,btn) in html
-$( "#btn" ).click(function() { // 
-  if ($("#audioPlayer")[0].paused == false) { 
-      $("#audioPlayer")[0].pause();
-      $(this).html('<img src="image/pause.png"/>');
-  } else {
-      $("#audioPlayer")[0].play();
-      $(this).html('<img src="image/play.png"/>');
-  }
+// 
+$( "#break" ).click(function() { // 
+        alert("pause");
 });

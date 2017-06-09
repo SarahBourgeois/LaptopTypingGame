@@ -1,53 +1,102 @@
 <!DOCTYPE HTML>
 <HTML>
-
 <head>
     <meta charset="utf-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/backgroundStyle.css">
     <title>Typing game</title>
 </head>
 
-<body>
-<!-- display letters -->
-<div id="lettersList"></div>
+<body >
 
-<!-- audio -->	
-<div id="play">
-    <audio id="audioPlayer" loop>
-    <source src="audio/simplySad.mp3">
-</audio>
-<button id="btn"><img src="image/play.png"/></button>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="https://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<div class="main-container" style="max-width:1300px">
+    <!-- top background -->
+	<div class="cloud">
+        <!-- top inscription connexion -->
+    	<div class="header">
+			<div class="header__bar">
+            	<div class="lang-ar menu-button" >CONNEXION</div>
+               	<div class="lang-ar menu-button" >INSCRIPTION</div>
+            	<div class="lang-en menu-button"></div>                
+				<div class="header__text" style="display:none"><span class="header__flag"></span></div>
+            </div>
+            <!-- title position -->
+        	<div class="header__moon">
+            </div>
+        <div class="header__sub-title">Instants enfants<br><a class="blog-link" href="http://omaraljaber.wordpress.com"></a></div>
+            <div class="header__title">j'apprends à écrire avec un clavier</div>
+       
+        </div>
+        <!-- cloud couche 1-->
+    	<div class="x3 cloud__front"></div>
+         <!-- cloud couche 2-->
+    	<div class="x2 cloud__back"></div>
+        <!-- animation roue -->
+        <div class="snake"></div>
+         <!-- cloud couche 3-->
+    	<div class="x1 cloud__main"></div>               
+    </div>
+
+    <div>
+        <!-- middle background -->
+    	<div class="light-stripes"></div>
+    	<div class="space"></div>
+    	<div class="stars"></div>
+    	<div class="blue-shadow"></div>     
+
+        <!-- Menu -->   
+    	<div class="popup" >
+        	<div class="popup__inner">
+            	<div class="dialog-1">
+                    <div class="popup__title">Options</div>
+                    <div class="popup__sub-title"> 
+                    </div>
+                    <div class="popup__divider"></div>
+                    <div id="play" class="blue-button">Jouer</div>    
+                    <div id="play" class="blue-button">Mode entrainement</div>            
+                    <div id="add" class="blue-button">Ajouter des mots ou phrases</div>                            
+                    <div id="student" class="blue-button">Les élèves</div>            
+                    <div id="settings" class="blue-button">Paramètres</div>            
+            	</div>
+            </div>
+        </div>      
+    </div> <!-- end middle background -->
+
+    <!-- the grace part -->
+    <div class="ground">
+        <!-- grace first part -->
+        <div class="first-part">
+        	<div class="first-hill"></div>
+	        <div class="first-trees"></div>
+        	<div class="mountain"></div>
+        </div>
+        <!-- grace last part -->
+        <div class="last-part">
+            <div class="last-hill">
+                <div class="house">
+                    <div class="larg-bubble"></div>
+                    <div class="small-bubble"></div>                
+                </div>
+                <div class="balloon"></div>
+                </div>
+
+    <!-- right tree (voir si ca sert) -->
+    <div class="last-trees"></div>        
+    <div class="yellow-lighting"></div><!-- useless-->
 </div>
 
-<!-- player life -->
-<div id="life">Vie : </div>
-<div id="image" ></div>
-<div id="image2" ></div>
-<div id="image3"></div>
-</div>  
- 
-<!-- time bar -->
-<div id="time"></div>
-<!-- score -->
-<div id="score"></div>
-<!-- level -->
-<div id="level">Pour commencer, appuie sur la bonne lettre !</div>
-
-<!-- form  -->
-<div id="sendscore">
-<form id="formulaire"  method="POST" hidden="none">
-	<h3>Envoie ton score ! </h3>
-<p><input id="pseudo"  type="text" value="your pseudo"></p>
-<p><input id="mail" type="email" value="your email"></p>
-</p><input id="send" type="submit" value="Send Score"></p>
-</form>
+        <div class="grace"></div><!-- useless-->
+    </div>   
 </div>
 
-<script src="js/letters.js" type="text/javascript"></script>
-<script src="js/wordsLevel.js" type="text/javascript"></script>
-<script src="js/app.js" type="text/javascript"></script>
-
+<!-- script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/mainPage.js"></script>
+    
 
 </body>
-</html>
+</HTML>

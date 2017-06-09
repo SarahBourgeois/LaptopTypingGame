@@ -1,22 +1,31 @@
+body { 
+position: absolute; 
+width: 100%; 
+height: 100%;
+}
+html {
+  line-height: 1;
+}
+
 
 /* display letter content*/
 #lettersList{
     text-align: center;
     font-size: 250px;
-    color: yellow;
+    color: black;
     text-decoration: " ";
 }
 
 #lettersList-{
-   text-align: center;
+    text-align: center;
     font-size: 250px;
     color: green;
     }
 /* time bar content*/
 #time {
-    height: 10px;
+    height: 30px;
     width: 100%;
-    background-color: brown;
+    background-color: green;
 }
 
 /*score content*/
@@ -43,17 +52,9 @@
     color: red;
 }
 
-/*form content*/
-#formulaire {
-	text-align:center;
-	border: 3px double black;
-	width: 30%;
-	margin: auto;	
-}
 
 #image, #image2, #image3{
-	background-image:url("../image/life.png");
- visibility:  "";
+	background-image:url("../image/life.png");visibility:  "";
 	height:0px;
 	width:10px;
 }
@@ -68,143 +69,25 @@
 		margin-left:15px;
 }
 
-#play{
+#break{
 	float:right;
 	margin-top:-100px;
 	margin-right:30px;
+    background :url("../image/game_break.png");
+    height: 128px;
+    width: 128px;
 }
 
-#audiofile {
-	visibility : hidden; 
-}
 
-
-/* Animation properties */
-.star {
-  animation: star 10s ease-out infinite;
-}
-.wars {
-  animation: wars 10s ease-out infinite;
-}
-.byline span {
-  animation: spin-letters 10s linear infinite;
-}
-.byline {
-  animation: move-byline 10s linear infinite;
-}
-
-/* Keyframes */
-@keyframes star {
-  0% {
-    opacity: 0;
-    transform: scale(1.5) translateY(-0.75em);
-  }
-  20% {
-    opacity: 1;
-  }
-  89% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateZ(-1000em);
-  }
-}
-
-@keyframes wars {
-  0% {
-    opacity: 0;
-    transform: scale(1.5) translateY(0.5em);
-  }
-  20% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateZ(-1000em);
-  }
-}
-
-@keyframes spin-letters {
-  0%, 10% {
-    opacity: 0;
-    transform: rotateY(90deg);
-  }
-  30% {
-    opacity: 1;
-  }
-  70%, 86% {
-    transform: rotateY(0);
-    opacity: 1;
-  }
-  95%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes move-byline {
-  0% {
-    transform: translateZ(5em);
-  }
-  100% {
-    transform: translateZ(0);
-  }
-}
-
-/* Make the 3D work on the container */
-.starwars-demo {
-  perspective: 800px;
-  transform-style: preserve3d;
-}
 
 /* General styles and layout */
-body {
-  background: #000 url(https://cssanimation.rocks/demo/starwars/images/bg.jpg);
+.part1{
+  background-repeat:no-repeat;
+  background-color: LightCyan;
 }
 
-.starwars-demo {
-  height: 17em;
-  left: 50%;
-  position: absolute;
-  top: 53%;
-  transform: translate(-50%, -50%);
-  width: 34em;
-}
-
-.byline span {
-  display: inline-block;
-}
-/*
-img {
-  width: 100%;
-}
-*/
-.star, .wars, .byline {
-  position: absolute;
-}
-
-.star {
-  top: -0.75em;
-}
-
-.wars {
-  bottom: -0.5em;
-}
-
-.byline {
-  color: #fff;
-  font-family: "ITC Serif Gothic", Lato;
-  font-size: 2.25em;
-  left: -2em;
-  letter-spacing: 0.4em;
-  right: -2em;
-  text-align: center;
-  text-transform: uppercase;
-  top: 29%;
+.part2 {
+    background-color: white;
+    height: 50%;
 }
 

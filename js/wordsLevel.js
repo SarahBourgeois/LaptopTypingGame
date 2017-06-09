@@ -1,8 +1,12 @@
-var  count=0;
+/**
+ * One word level
+ * @Sarah Bourgeois 
+ */
+
 var wordLength = 0; // Init de word index
 var listLetters = [];
-var initWordLength; // length of the start word
-
+var initWordLength =0; // length of the start word
+var  count=0;
 
 // random words
 function randomWords(){
@@ -12,7 +16,7 @@ function randomWords(){
     for( var i=0; i<item.length; i++) {
         listLetters.push(item[i].toUpperCase());
     }
-    lettersList.innerHTML  = item; 
+    lettersList.innerHTML  = item;
     initWordLength = item.length;
 }
 
@@ -27,7 +31,7 @@ function setCharAt(str,index,chr) {
 
 // compare between user is typing and the word
 function wordsComparaison() {
-  wordLength = lettersList.innerHTML.length; //retrieve lenght of the div word
+      wordLength = lettersList.innerHTML.length;  //retrieve lenght of the div word
      if(keyboard_id.toUpperCase() == listLetters[count]) {
         lettersList.innerHTML = setCharAt(lettersList.innerHTML, wordLength - initWordLength, '<span style="color: green;">'+listLetters[count]+'</span>');
         count++; 

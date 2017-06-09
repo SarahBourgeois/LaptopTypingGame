@@ -1,3 +1,9 @@
+/**
+ * One letter level 
+ * @Sarah Bourgeois 
+ */
+
+
 // retrieve global html element
 var lettres =document.querySelectorAll("#lettersList");
 var level = document.getElementById("level");
