@@ -22,7 +22,20 @@ function randomLetters() {
 // compare display letters and user's action 
 function comparaison() {
 if(letters_id ==keyboard_id.toUpperCase()){
-    if(score <10) {
+    scoreAction();
+    score++;
+    randomLetters();
+    gameTimer();   
+    document.getElementById("score").innerHTML = "Score : " + score;
+}
+if (letters_id != keyboard_id && diminish_timebar==0) {
+    diminish_timebar = diminish_timebar - 20;
+    gameTimer(); 
+}
+}
+
+function scoreAction() {
+        if(score <10) {
         diminish_timebar = 100; // ajust time bar 
         level.innerHTML= "Level 1 ";
     }
@@ -51,15 +64,6 @@ if(letters_id ==keyboard_id.toUpperCase()){
         diminish_timebar = 15;
         level.innerHTML="Hero level";
     }
-    score++;
-    randomLetters();
-    gameTimer();   
-    document.getElementById("score").innerHTML = "Score : " + score;
-}
-if (letters_id != keyboard_id && diminish_timebar==0) {
-    diminish_timebar = diminish_timebar - 20;
-    gameTimer(); 
-}
 }
 
 

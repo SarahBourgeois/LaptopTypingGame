@@ -7,7 +7,7 @@ var wordLength = 0; // Init de word index
 var listLetters = [];
 var initWordLength =0; // length of the start word
 var  count=0;
-
+ var score =0;
 // random words
 function randomWords(){
     var arrayWords = ["ENFANT", "ECOLE", "JARDIN"];
@@ -36,12 +36,20 @@ function wordsComparaison() {
         lettersList.innerHTML = setCharAt(lettersList.innerHTML, wordLength - initWordLength, '<span style="color: green;">'+listLetters[count]+'</span>');
         count++; 
         initWordLength--; //cross the word from the end to the double letters
-    }       
+         scoreAction();
+       
+ }       
     if (listLetters.length == count) {
         flickerWord();
         count = 0;
+        score ++;
         setTimeout(randomWords, 3000); // set time to launch a new word 
- }    
+       
+}    
+ if (keyboard_id.toUpperCase() != listLetters[count]) {
+    diminish_timebar = diminish_timebar - 20;
+    gameTimer();
+ }
 }
 
 // to do a flicker word

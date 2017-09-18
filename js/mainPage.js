@@ -1,3 +1,13 @@
+/* button to register */
+$("#inscription").click(function() {
+  window.location.href="html/register/insc.html";
+});
+
+/* button to connect */
+$("connexion").click(function() {
+        window.location.href="html/login.html";
+});
+
 /* button to go to  launch the game */
 $( "#play").click(function() { // 
         window.location.href="html/game.html";
