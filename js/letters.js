@@ -3,6 +3,15 @@
  * @Sarah Bourgeois 
  */
 
+// spell letter / audio
+function spellLetters(lettersToSpell) {
+	var u = new SpeechSynthesisUtterance();
+	u.text = lettersToSpell;
+	u.lang = 'fr-FR';
+	u.rate = 1.2;
+	speechSynthesis.speak(u);
+}
+
 
 // retrieve global html element
 var lettres =document.querySelectorAll("#lettersList");
@@ -17,6 +26,7 @@ function randomLetters() {
     var item = items[Math.floor(Math.random()*items.length)]; // select random item into the array
     letters_id = item;
     lettersList.innerHTML  = item; 
+    spellLetters(item);
 }
 
 // compare display letters and user's action 

@@ -10,7 +10,7 @@ $("connexion").click(function() {
 
 /* button to go to  launch the game */
 $( "#play").click(function() { // 
-        window.location.href="html/game.html";
+        window.location.href="html/instructions.html";
 });
 
 /* button to go to add words or sentences */

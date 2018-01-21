@@ -26,7 +26,6 @@ function startGame() {
 // ===================================
 //  The timebar
 // ===================================
-
 // init timebar 
 function time(){
 clearTimeout(temp);
